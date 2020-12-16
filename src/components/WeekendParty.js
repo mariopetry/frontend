@@ -60,7 +60,7 @@ render() {
                             <tr key={gameRoom.id}>
                               
                               <td className="td">{gameRoom.name}</td>
-                              <td> <button onClick={(e) => console.log("Ich wurde gedrückt" + gameRoom.id)} className="btn waves-effect waves-light blue" type="submit" name="action">{gameRoom.name}</button></td>
+                              <td> <button onClick={(e) => console.log("Ich wurde gedrückt" + gameRoom.id)} className="btn waves-effect waves-light amber darken-3" type="submit" name="action">Beitreten</button></td>
                               
                             </tr>
                             )
