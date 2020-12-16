@@ -15,7 +15,7 @@ this.state = {
 }
 
 componentDidMount() {
-    axios.get("http://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/get")
+    axios.get("http://SpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/get")
     .then((res)=> {
         this.setState({
             gameRooms :res.data
@@ -25,7 +25,7 @@ componentDidMount() {
 
 addGameRoom(event) {
     event.preventDefault();
-    axios.post("http://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/post",{
+    axios.post("http://SSpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com /gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player
@@ -36,8 +36,8 @@ render() {
     return(
 
         
-        <div class="col s12 center align">
-            <div class="container ">
+        <div className="col s12 center align">
+            <div className="container ">
             <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text"  placeholder={'Name'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
             <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password"  placeholder={'Password'} className="autocomplete" />
@@ -47,11 +47,12 @@ render() {
             </button>
 
                             </div>
-        <div class="container ">
+        <div className="container ">
           <table className="centered">
                       <thead>
                         <tr>
                             <th>Name</th> 
+                            <th>Los</th> 
                         </tr>
                       </thead>
                       <tbody>

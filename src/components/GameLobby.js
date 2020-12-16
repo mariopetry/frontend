@@ -19,13 +19,13 @@ super(props);
 render() {
     return(
 <Router>
-        <div class="row">
-        <div class="col s12 m6 center align">
+        <div className="row">
+        <div className="col s12 m6 center align">
           <a href="/weekendParty">
             <img className="fixed_img" src={WeekendPicture}  />
             </a>
             </div>
-        <div class="col s12 m6 center align">
+        <div className="col s12 m6 center align">
           <a href="/tictactoe">
             <img className="fixed_img" src={TicTacToePicture}  />
             </a>
