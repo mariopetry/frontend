@@ -38,9 +38,9 @@ render() {
         
         <div class="col s12 center align">
             <div class="container ">
-            <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text" id="autocomplete-input" placeholder={'Name'} className="autocomplete" />
+            <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text"  placeholder={'Name'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
-            <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password" id="autocomplete-input" placeholder={'Password'} className="autocomplete" />
+            <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password"  placeholder={'Password'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
              <button class="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
                             <i class="material-icons right">send</i>
