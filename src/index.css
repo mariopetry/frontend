@@ -11,7 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.header_img {
+  width: 200px;
+  height: 200px;
+}
 .fixed_img {
   width: 350px;
   height: 250px;
