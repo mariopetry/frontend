@@ -15,7 +15,7 @@ this.state = {
 }
 
 componentDidMount() {
-    axios.get("https://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/get")
+    axios.get("http://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/get")
     .then((res)=> {
         this.setState({
             gameRooms :res.data
@@ -25,7 +25,7 @@ componentDidMount() {
 
 addGameRoom(event) {
     event.preventDefault();
-    axios.post("https://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/post",{
+    axios.post("http://springbootbackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player
@@ -38,9 +38,9 @@ render() {
         
         <div class="col s12 center align">
             <div class="container ">
-            <input onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text" id="autocomplete-input" placeholder={'Name'} className="autocomplete" />
+            <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text" id="autocomplete-input" placeholder={'Name'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
-            <input onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password" id="autocomplete-input" placeholder={'Password'} className="autocomplete" />
+            <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password" id="autocomplete-input" placeholder={'Password'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
              <button class="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
                             <i class="material-icons right">send</i>
