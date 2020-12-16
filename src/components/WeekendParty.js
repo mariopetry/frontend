@@ -25,7 +25,7 @@ componentDidMount() {
 
 addGameRoom(event) {
     event.preventDefault();
-    axios.post("http://SSpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com /gameroom/post",{
+    axios.post("http://SpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com /gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player
