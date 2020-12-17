@@ -1,6 +1,4 @@
 import React from 'react';
-import WeekendPicture from './pictures/WeekendGamePicture.png';
-import TicTacToePicture from './pictures/tictactoe.png'
 import WeekendParty from './WeekendParty';
 import TicTacToe from './TicTacToe';
 
