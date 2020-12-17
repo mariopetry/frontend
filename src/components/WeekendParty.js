@@ -15,7 +15,7 @@ this.state = {
 }
 
 componentDidMount() {
-    axios.get("https://localhost:5000/gameroom/get")
+    axios.get("http://localhost:5000/gameroom/get")
     .then((res)=> {
         this.setState({
             gameRooms :res.data
@@ -25,7 +25,7 @@ componentDidMount() {
 
 addGameRoom(event) {
     event.preventDefault();
-    axios.post("https://localhost:5000/gameroom/post",{
+    axios.post("http://localhost:5000/gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player
