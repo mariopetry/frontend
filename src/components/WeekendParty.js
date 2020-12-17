@@ -15,7 +15,7 @@ this.state = {
 }
 
 componentDidMount() {
-    axios.get("http://SpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/get")
+    axios.get("http://localhost:5000/gameroom/get")
     .then((res)=> {
         this.setState({
             gameRooms :res.data
@@ -25,11 +25,12 @@ componentDidMount() {
 
 addGameRoom(event) {
     event.preventDefault();
-    axios.post("http://SpringBootBackend-env.eba-bwahcv4m.eu-central-1.elasticbeanstalk.com/gameroom/post",{
+    axios.post("http://localhost:5000/gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player
-    });
+    }).then(() =>  this.componentDidMount());
+   
 }
 
 render() {
