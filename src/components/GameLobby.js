@@ -16,19 +16,19 @@ constructor(props) {
 super(props);
 }
 
+
+
 render() {
     return(
 <Router>
         <div className="row">
         <div className="col s12 m6 center align">
-          <a href="/weekendParty">
-            <img className="fixed_img" src={WeekendPicture}  />
-            </a>
+        <a class="btn-floating btn-large waves-effect waves-light amber darken-3 large" href="/weekendParty"><i class="material-icons">sentiment_very_satisfied</i></a>
+        <h5>Weekend</h5>
             </div>
         <div className="col s12 m6 center align">
-          <a href="/tictactoe">
-            <img className="fixed_img" src={TicTacToePicture}  />
-            </a>
+        <a class="btn-floating btn-large waves-effect waves-light amber darken-3 large" href="/ tictactoe"><i class="material-icons">grid_on</i></a>
+        <h5>Tic Tac Toe</h5>
             </div>
       </div>
       <Switch>

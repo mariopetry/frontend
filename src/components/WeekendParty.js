@@ -38,6 +38,9 @@ render() {
 
         
         <div className="col s12 center align">
+<br></br>
+<br></br>
+<br></br>
             <div className="container ">
             <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text"  placeholder={'Name'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
@@ -46,7 +49,11 @@ render() {
              <button class="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
                             <i class="material-icons right">send</i>
             </button>
-
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
                             </div>
         <div className="container ">
           <table className="centered">
