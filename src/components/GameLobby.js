@@ -25,7 +25,7 @@ render() {
         <h5>Weekend</h5>
             </div>
         <div className="col s12 m6 center align">
-        <a class="btn-floating btn-large waves-effect waves-light amber darken-3 large" href="/ tictactoe"><i class="material-icons">grid_on</i></a>
+        <a class="btn-floating btn-large waves-effect waves-light amber darken-3 large" href="/tictactoe"><i class="material-icons">grid_on</i></a>
         <h5>Tic Tac Toe</h5>
             </div>
       </div>
