@@ -12,7 +12,7 @@ function App() {
             </header>
             <main>
                 <Welcome /> 
-                <Chat /> 
+                <Chat />
             </main>
             <footer>
                 <Footer />

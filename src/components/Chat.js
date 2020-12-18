@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Messages from "./Messages";
 import Input from "./Input";
-import {Sidebar} from 'react-sidebar-ui';
 import 'react-sidebar-ui/dist/index.css';
 
 function randomColor() {
@@ -38,9 +37,17 @@ class Chat extends Component {
     });
   }
 
+  onSendMessage = (message) => {
+    this.drone.publish({
+      room: "observable-room",
+      message
+    });
+  }
+
   render() {
     return (
       <div>
+
         <Messages
           messages={this.state.messages}
           currentMember={this.state.member}
@@ -53,12 +60,7 @@ class Chat extends Component {
     );
   }
 
-  onSendMessage = (message) => {
-    this.drone.publish({
-      room: "observable-room",
-      message
-    });
-  }
+ 
 
 }
 

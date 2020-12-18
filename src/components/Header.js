@@ -18,9 +18,9 @@ class Header extends React.Component {
                    <StickyHeader
                   header={
                     <nav>
-                    <div class="nav-wrapper amber darken-3">
+                    <div className="nav-wrapper amber darken-3">
                       <a href="/" class="brand-logo">Marioseinspiel</a>
-                      <ul class="right hide-on-med-and-down">
+                      <ul className="right hide-on-med-and-down">
                         <li><a href="/weekendParty"><i class="material-icons left">sentiment_very_satisfied</i>WeekendParty</a></li>
                         <li><a href="/tictactoe"><i class="material-icons left">grid_on</i>Tic Tac Toe</a></li>
                       </ul>

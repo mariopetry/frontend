@@ -1,12 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import GameRoom from './GameRoom';
 
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+  } from "react-router-dom";
 
 
 class WeekendParty extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
+    WeekendParty:1,
     gameRooms: [],
     name:'',
     password:'',
@@ -19,7 +26,10 @@ componentDidMount() {
     axios.get("http://localhost:5000/gameroom/get")
     .then((res)=> {
         this.setState({
-            gameRooms :res.data
+            id:0,
+            gameRooms :res.data,
+            name:'',
+            password:'',
         })
     })
 }
@@ -29,15 +39,23 @@ addGameRoom(event) {
     axios.post("http://localhost:5000/gameroom/post",{
         name : this.state.name,
         password : this.state.password,
-        player : this.state.player
+        player : this.state.player,
+        weekendParty: this.state.weekendParty
     }).then(() =>  this.componentDidMount());
    
+}
+
+setGameRoomID(id) {
+    this.setState({
+        id:id
+  })
+  console.log("Ich wurde gedrückt")
 }
 
 render() {
     return(
 
-        
+        <Router>
         <div className="col s12 center align">
 <br></br>
 <br></br>
@@ -47,11 +65,9 @@ render() {
                             <label htmlfor="autocomplete-input"></label>
             <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password"  placeholder={'Password'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
-             <button class="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
+             <button className="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
                             <i class="material-icons right">send</i>
             </button>
-<br></br>
-<br></br>
 <br></br>
 <br></br>
 <br></br>
@@ -61,7 +77,7 @@ render() {
                       <thead>
                         <tr>
                             <th>Name</th> 
-                            <th>Los</th> 
+                            <th>Beitreten</th> 
                         </tr>
                       </thead>
                       <tbody>
@@ -70,7 +86,7 @@ render() {
                             <tr key={gameRoom.id}>
                               
                               <td className="td">{gameRoom.name}</td>
-                              <td> <button onClick={(e) => console.log("Ich wurde gedrückt" + gameRoom.id)} className="btn waves-effect waves-light amber darken-3" type="submit" name="action">Beitreten</button></td>
+                              <td><a className="btn-floating btn-large waves-effect waves-light amber darken-3"  href="/weekendParty/gameroom"><i class="material-icons">toys</i></a></td>
                               
                             </tr>
                             )
@@ -79,6 +95,14 @@ render() {
                       </table>
                 </div>
           </div>
+          <Switch>
+          <Route path="/weekendParty/gameroom">
+                <GameRoom />
+              </Route>
+          </Switch>
+</Router>
+
+
         
         
       
