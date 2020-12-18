@@ -1,18 +1,23 @@
 import './App.css';
-import GameLobby from './components/GameLobby';
-import MarioSeinSpiel from './components/pictures/marioseinspiel.png';
-
+import Welcome from './components/Welcome';
+import Chat from './components/Chat';
+import Header from './components/Header';
+import Footer from './components/Footer';
 function App() {
   return (
-    <div className="App">
-      <header >
-      <img className="header_img" src={MarioSeinSpiel}  />
-      </header>
-      <body>
-        <GameLobby />
-
-      </body>
-    </div>
+ 
+      <div>
+            <header>
+                <Header />
+            </header>
+            <main>
+                <Welcome /> 
+                <Chat /> 
+            </main>
+            <footer>
+                <Footer />
+            </footer>
+     </div> 
   );
 }
 
