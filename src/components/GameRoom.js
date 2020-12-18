@@ -1,4 +1,5 @@
 import React from 'react';
+import Spielbrett from './pictures/spielbrettneu.png'
 
 
 class GameRoom extends React.Component {
@@ -10,7 +11,7 @@ class GameRoom extends React.Component {
 <br></br>
 <br></br>
 <br></br>
-        <h3 >GameRoom</h3>
+<img className = "fixed_img" src={Spielbrett} alt="this is the gamefield" />
         
       </div>
       

@@ -12,4 +12,7 @@ code {
     monospace;
 }
 
-
+.fixed_img {
+  width: 1300px;
+  height: 600px;
+}
