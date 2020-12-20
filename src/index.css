@@ -16,3 +16,10 @@ code {
   width: 1300px;
   height: 600px;
 }
+
+#canvas {
+  background-color: #fff8e1;
+  height: 600px;
+  width: 1400px;
+  
+}

@@ -13,43 +13,61 @@ class WeekendParty extends React.Component {
 constructor(props) {
 super(props);
 this.state = {
-    WeekendParty:1,
+    
+    WeekendParty: {
+      id: 1
+    },
     gameRooms: [],
+    id:'',
     name:'',
     password:'',
-    player:[]
+    player:[],
+
+    sendId:'',
+    sendName:'',
+    sendPassword:'',
 
 }
+this.addGameRoom = this.addGameRoom.bind(this);
+this.setGameRoom = this.setGameRoom.bind(this);
 }
+
 
 componentDidMount() {
     axios.get("http://localhost:5000/gameroom/get")
     .then((res)=> {
         this.setState({
-            id:0,
+            
             gameRooms :res.data,
+            id:'',
             name:'',
             password:'',
         })
     })
 }
 
-addGameRoom(event) {
-    event.preventDefault();
+addGameRoom() {
+   
     axios.post("http://localhost:5000/gameroom/post",{
         name : this.state.name,
         password : this.state.password,
         player : this.state.player,
-        weekendParty: this.state.weekendParty
-    }).then(() =>  this.componentDidMount());
+        weekendParty: {
+          id: 1,
+          gameRooms: this.state.gameRooms
+        } 
+    });
    
 }
 
-setGameRoomID(id) {
+setGameRoom(event,password,name,id) {
+  event.preventDefault();
+  console.log(id + "" + name);
     this.setState({
-        id:id
+        sendId:id,
+        sendName:name,
+        sendPassword : password
   })
-  console.log("Ich wurde gedrückt")
 }
 
 render() {
@@ -61,11 +79,11 @@ render() {
 <br></br>
 <br></br>
             <div className="container ">
-            <input id ="name" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text"  placeholder={'Name'} className="autocomplete" />
+            <input id ="roomname" onChange={(e)=>this.setState({name:e.target.value})} value={this.state.name} type="text"  placeholder={'Name'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
-            <input id="password" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password"  placeholder={'Password'} className="autocomplete" />
+            <input id="roompassword" onChange={(e)=>this.setState({password:e.target.value})} value={this.state.password} type="password"  placeholder={'Password'} className="autocomplete" />
                             <label htmlfor="autocomplete-input"></label>
-             <button className="btn waves-effect waves-light amber darken-3" onClick={(event) => this.addGameRoom(event)} type="submit" name="action">Anlegen
+             <button className="btn waves-effect waves-light amber darken-3" onClick={() => this.addGameRoom()} type="submit" name="action">Anlegen
                             <i class="material-icons right">send</i>
             </button>
 <br></br>
@@ -86,18 +104,19 @@ render() {
                             <tr key={gameRoom.id}>
                               
                               <td className="td">{gameRoom.name}</td>
-                              <td><a className="btn-floating btn-large waves-effect waves-light amber darken-3"  href="/weekendParty/gameroom"><i class="material-icons">toys</i></a></td>
+                              <td><a className="btn-floating btn-large waves-effect waves-light amber darken-3" href="/weekendParty/gameroom" onClick={(event) => this.setGameRoom(event,gameRoom.password,gameRoom.name,gameRoom.id)}  ><i class="material-icons">toys</i></a></td>
                               
                             </tr>
                             )
                         }
                                  </tbody>
                       </table>
+                      
                 </div>
           </div>
           <Switch>
           <Route path="/weekendParty/gameroom">
-                <GameRoom />
+                <GameRoom name = {this.state.sendName} password = {this.state.sendPassword} id = {this.state.sendId} />
               </Route>
           </Switch>
 </Router>
